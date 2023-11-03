@@ -1,5 +1,5 @@
-NAME = megaphone
-SRC = 
+NAME = phonebook
+SRC = Contact.cpp PhoneBook.cpp utils.cpp main.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g3 -O3 -std=c++98 -fsanitize=address,undefined
 

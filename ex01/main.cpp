@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:40:30 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/11/03 18:01:34 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/11/07 14:03:47 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@ int	main(void)
 {
 	PhoneBook	Phonebook;
 	std::string	input;
-	std::cout << "Enter ADD, SEARCH or EXIT.\n";
 	while (1)
 	{
+		std::cout << "Enter ADD, SEARCH or EXIT.\n";
+		std::cin.clear();
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::exit(0);
+		}
 		if (input == "ADD")
 			Phonebook.ADD();
 		else if (input == "SEARCH")

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 16:07:31 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/11/03 17:59:48 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/11/07 14:03:25 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,13 @@ std::string	get_input(std::string prompt)
 	while (1)
 	{
 		std::cout << prompt << '\n';
+		std::cin.clear();
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::exit(0);
+		}
 		if (!input.empty() && !spaces_only(input))
 			return (input);
 		std::cout << "Error: invalid input\n";

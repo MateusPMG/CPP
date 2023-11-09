@@ -1,5 +1,5 @@
-NAME = 
-SRC = 
+NAME = accounts
+SRC = Account.cpp tests.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g3 -O3 -std=c++98 -fsanitize=address,undefined
 

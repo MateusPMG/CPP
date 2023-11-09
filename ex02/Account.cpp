@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:09:31 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/11/09 16:23:19 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/11/09 16:31:08 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	Account::makeDeposit(int deposit)
 	<< ";deposit:" << deposit;
 	_amount += deposit;
 	_nbDeposits++;
+	Account::_totalNbDeposits++;
+	Account::_totalAmount += deposit;
 	std::cout << ";amount:" << _amount << ";nb_deposits:" << _nbDeposits
 	<< std::endl;
 }
@@ -96,6 +98,8 @@ bool	Account::makeWithdrawal(int withdrawal)
 	}
 	_amount -= withdrawal;
 	_nbWithdrawals++;
+	Account::_totalNbWithdrawals++;
+	Account::_totalAmount -= withdrawal;
 	std::cout << ";withdrawal:" << withdrawal << ";amount:" << _amount
 	<< ";nb_withdrawals:" << _nbWithdrawals << std::endl;
 	return (true);
@@ -110,7 +114,7 @@ void	Account::displayStatus(void) const
 {
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount
-	<< "deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals
+	<< ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals
 	<< std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:23:54 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/11/13 16:19:57 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/11/15 13:58:11 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int	main(void)
 {
-	Zombie	*Zombie;
-	Zombie = NULL;
-	Zombie = newZombie("newbie");
-	randomChump("chump");
-	Zombie->announce();
-	delete Zombie;
+	Zombie*	Zombie;
+	Zombie = ZombieHorde(5, "manel");
+	for(int i = 0; i < 5;i++)
+		Zombie[i].announce();
+	delete[] Zombie;
 	return (0);
 }

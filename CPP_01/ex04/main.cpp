@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:12:01 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/11/21 17:18:13 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/11/21 17:22:12 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ int	main(int ac, char **av)
 {
 	if (ac == 4)
 	{
-		std::string filename;
-		filename = av[1];
+		std::string filename = av[1];
 		std::ifstream fs;
 		fs.open(filename.c_str());
 		if (!fs)
 		{
-			std::cerr << "Error1: couldnt open file\n";
+			std::cerr << "Error: couldnt open file\n";
 			return (1);
 		}
 		std::string	content;
@@ -36,12 +35,9 @@ int	main(int ac, char **av)
 				content += '\n';
 		}
 		fs.close();
-		size_t	pos;
-		std::string	s1;
-		std::string s2;
-		s2 = av[3];
-		s1 = av[2];
-		pos = 0;
+		size_t	pos = 0;
+		std::string	s1 = av[2];
+		std::string s2 = av[3];
 		if (s1.empty())
 		{
 			std::cerr << "Error: s1 cannot be empty\n";

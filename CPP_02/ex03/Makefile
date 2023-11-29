@@ -1,5 +1,5 @@
 NAME = a.out
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g3 -O3 -std=c++98 -fsanitize=address,undefined
 

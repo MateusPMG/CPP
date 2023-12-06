@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:09:47 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/06 15:33:17 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:27:08 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ ClapTrap::ClapTrap(std::string name){
 	this->Hit_points = 10;
 	this->Energy_points = 10;
 	this->Attack_damage = 0;}
+
+ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int ad){
+	std::cout << "Called default constructor with name " << name << " and given stats\n";
+	this->Name = name;
+	this->Hit_points = hp;
+	this->Energy_points = ep;
+	this->Attack_damage = ad;}
 
 ClapTrap::ClapTrap(ClapTrap& copy){
 	std::cout << "Called copy constructor\n";
@@ -49,29 +56,23 @@ void ClapTrap::set_ep(unsigned int ep){
 void ClapTrap::set_ad(unsigned int ad){	
 	this->Attack_damage = ad;}
 
-std::string ClapTrap::get_name(void){
+std::string ClapTrap::get_name(void)const{
 	return (this->Name);}
 
-unsigned int ClapTrap::get_hp(void){
+unsigned int ClapTrap::get_hp(void)const{
 	return (this->Hit_points);}
 
-unsigned int ClapTrap::get_ep(void){
+unsigned int ClapTrap::get_ep(void)const{
 	return (this->Energy_points);}
 
-unsigned int ClapTrap::get_ad(void){
+unsigned int ClapTrap::get_ad(void)const{
 	return (this->Attack_damage);}
 
 void ClapTrap::attack(const std::string& target){
 	if (this->Energy_points == 0)
-	{
 		std::cout << "ClapTrap " << this->Name << " has no energy to execute actions\n";
-		return;
-	}
 	else if (this->Hit_points == 0)
-	{
 		std::cout << "ClapTrap " << this->Name << " has no hit points to execute actions\n";
-		return;
-	}
 	else if (this->Energy_points != 0){
 		this->set_ep(this->Energy_points - 1);
 		std::cout << "ClapTrap " << this->Name << " attacks " << target << ", causing " << this->Attack_damage << " points of damage!\n";
@@ -80,27 +81,26 @@ void ClapTrap::attack(const std::string& target){
 void ClapTrap::takeDamage(unsigned int amount){
 	if (this->Hit_points != 0)
 	{
-		std::cout << "ClapTrap " << this->Name << " takes " << amount << " damage\n";
+		std::cout << this->Name << " takes " << amount << " damage\n";
 		if (amount <= this->Hit_points)
 			this->set_hp(this->Hit_points - amount);
 		else
-			this->set_hp(0);
-		return;}
+			this->set_hp(0);}
 	else
-		std::cout << "ClapTrap " << this->Name <<  " has no hit points left\n";}
+		std::cout << this->Name <<  " has no hit points left can't take damage\n";}
 
 void ClapTrap::beRepaired(unsigned int amount){
-	if (this->Energy_points == 0)
-	{
-		std::cout << this->get_name() << " repaired " << amount << " hit points\n";
-		return;
-	}
-	else if (this->Hit_points == 0)
+	if (this->Hit_points == 0)
 	{
 		std::cout << this->get_name() <<  " has no hit points, can't repair\n";
+		return;
+	}
+	else if (this->Energy_points == 0)
+	{
+		std::cout << this->get_name() << " repaired " << amount << " hit points\n";
 		return;
 	}
 	else if (this->Energy_points != 0){
 		this->set_hp(this->Hit_points + amount);
 		this->set_ep(this->Energy_points - 1);
-		std::cout << "ClapTrap " << this->get_name() << " has been repaired, gaining: " << amount << " hit points\n";}}
+		std::cout << this->get_name() << " has been repaired, gaining: " << amount << " hit points\n";}}

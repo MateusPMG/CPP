@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:35:45 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/06 15:24:43 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/06 18:51:30 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 ScavTrap::ScavTrap():ClapTrap("scavie", 100, 50, 20){
 	std::cout << "Called default scavtrap constructor\n";}
+
+ScavTrap::ScavTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int ad){
+	std::cout << "Called default scavtrap constructor with name " << name << " and given stats\n";
+	this->Name = name;
+	this->Hit_points = hp;
+	this->Energy_points = ep;
+	this->Attack_damage = ad;}
 
 ScavTrap::ScavTrap(std::string name):ClapTrap(name, 100, 50, 20){
 	std::cout << "Called scavtrap parametric constructor\n";}

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:54:57 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/06 17:47:52 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/06 18:51:19 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 FragTrap::FragTrap():ClapTrap("fraggie", 100, 100, 30){
 	std::cout << "Called default FragTrap constructor\n";}
+
+FragTrap::FragTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int ad){
+	std::cout << "Called default fragtrap constructor with name " << name << " and given stats\n";
+	this->Name = name;
+	this->Hit_points = hp;
+	this->Energy_points = ep;
+	this->Attack_damage = ad;}
 
 FragTrap::FragTrap(std::string name):ClapTrap(name, 100, 100, 30){
 	std::cout << "Called FragTrap parametric constructor\n";}

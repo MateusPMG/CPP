@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:03:42 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/19 13:16:44 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/19 16:07:41 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@ class Cat: public Animal{
 		Cat& operator=(const Cat& copy);
 		~Cat();
 		void makeSound() const;
+		void	epiphany(int i, std::string idea);
+		void	ponder(int i);
 };

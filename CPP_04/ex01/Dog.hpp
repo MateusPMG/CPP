@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:04:03 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/19 13:16:51 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/19 14:51:28 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@ class Dog: public Animal{
 		Dog& operator=(const Dog& copy);
 		~Dog();
 		void makeSound()const;
+		void	epiphany(int i, std::string idea);
+		void	ponder(int i);
 };

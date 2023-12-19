@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:03:52 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/19 13:49:05 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/19 14:54:40 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,4 @@ void		Brain::set_idea(int index, std::string idea)
 {
 	this->ideas[index] = idea;
 }
+

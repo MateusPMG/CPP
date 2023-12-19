@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:03:50 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/19 13:47:13 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/19 16:30:28 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,12 @@ Cat::~Cat(){
 
 void Cat::makeSound()const{
 	std::cout << this->type <<" goes meow\n";
+}
+
+void Cat::epiphany(int i, std::string idea){
+	this->_Brain->set_idea(i, idea);
+}
+
+void Cat::ponder(int i){
+	std::cout << this->get_type() << " is thinking about " << this->_Brain->get_idea(i) << "\n";
 }

@@ -5,36 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 16:02:17 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/19 11:39:47 by mpatrao          ###   ########.fr       */
+/*   Created: 2023/12/19 12:41:41 by mpatrao           #+#    #+#             */
+/*   Updated: 2023/12/19 13:23:54 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "Dog.hpp"
+#include "Brain.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-int main()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->get_type() << " " << std::endl;
-	std::cout << i->get_type() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
-	
-	const WrongAnimal *wrong_meta = new WrongAnimal();
-	const WrongCat *k = new WrongCat();	
-	std::cout << k->get_type() << std::endl;
-	wrong_meta->makeSound();
-	k->makeSound();
-	delete wrong_meta;
-	delete k;
+int	main(void){
+	Animal* array[4];
+	for (int i = 0; i < 4; i++)
+	{
+		if (i <= 1)
+			array[i] = new Dog();
+		else
+			array[i] = new Cat();
+	}
+
+	for (int i = 0; i < 4; i++)
+		delete array[i];
+	return 0;
 }

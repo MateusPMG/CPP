@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:09:21 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/06 15:18:09 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/20 15:23:35 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int	main(void)
 		c4.beRepaired(1);		
 	}
 	c3.beRepaired(1);
+	c3.guardGate();
 	return (0);
 }

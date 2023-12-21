@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:50:24 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/06 19:02:21 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/20 15:33:24 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap(std::string name):FragTrap(name + "_clap_name", FragTra
 	this->Name = name;
 	std::cout << "Called DiamondTrap parametric constructor\n";}
 
-DiamondTrap::DiamondTrap(const DiamondTrap& copy){
+DiamondTrap::DiamondTrap(const DiamondTrap& copy):ClapTrap(),FragTrap(),ScavTrap(){
 	std::cout << "Called DiamondTrap copy constructor\n";
 	*this = copy;}
 

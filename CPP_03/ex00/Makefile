@@ -1,7 +1,7 @@
 NAME = a.out
 SRC = main.cpp ClapTrap.cpp 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -g3 -O3 -std=c++98 -fsanitize=address,undefined
+CFLAGS = -Wall -Wextra -Werror -g3 -std=c++98 -fsanitize=address,undefined
 
 all:	$(NAME)
 

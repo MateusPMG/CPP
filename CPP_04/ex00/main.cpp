@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:02:17 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/19 11:39:47 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/21 13:56:53 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ int main()
 	delete i;
 	
 	const WrongAnimal *wrong_meta = new WrongAnimal();
+	const WrongAnimal *wrong_cat = new WrongCat();
 	const WrongCat *k = new WrongCat();	
 	std::cout << k->get_type() << std::endl;
+	std::cout << wrong_cat->get_type() << std::endl;
 	wrong_meta->makeSound();
+	wrong_cat->makeSound();
 	k->makeSound();
 	delete wrong_meta;
+	delete wrong_cat;
 	delete k;
 }

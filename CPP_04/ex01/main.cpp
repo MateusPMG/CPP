@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:41:41 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/19 16:31:59 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/21 14:03:11 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 #include "Dog.hpp"
 
 int	main(void){
+
+	Dog basic;
+	{
+		basic.epiphany(2, "ok");
+		Dog tmp = basic;
+	}
+	basic.ponder(2);
+	
 	Animal* array[4];
 	for (int i = 0; i < 4; i++)
 	{

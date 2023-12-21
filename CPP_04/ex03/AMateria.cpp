@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:35:08 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/21 15:22:25 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/21 16:39:06 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ void AMateria::setType(std::string const & type){
 }
 
 void AMateria::use(ICharacter& target){
-    
+    if (this->type == "ice")
+        std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+    else if (this->type == "cure")
+        std::cout << "* heals " << target.getName() << "'s wounds *\n";
 }

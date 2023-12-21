@@ -1,24 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 15:06:25 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/21 16:03:09 by mpatrao          ###   ########.fr       */
+/*   Created: 2023/12/21 15:54:53 by mpatrao           #+#    #+#             */
+/*   Updated: 2023/12/21 15:55:12 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "ICharacter.hpp"
 
-#include "AMateria.hpp"
-
-class Ice : public AMateria{
-    public:
-        Ice();
-        Ice(const Ice& copy);
-        Ice& operator=(const Ice& copy);
-        ~Ice();
-        AMateria* clone()const;
-};
+ICharacter::~ICharacter(){
+    
+}

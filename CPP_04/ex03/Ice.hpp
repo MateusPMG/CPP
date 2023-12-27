@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:06:25 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/21 16:03:09 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/27 14:07:41 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ class Ice : public AMateria{
         Ice& operator=(const Ice& copy);
         ~Ice();
         AMateria* clone()const;
+        void	use(ICharacter &target);
 };

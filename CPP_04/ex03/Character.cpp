@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:15:46 by mpatrao           #+#    #+#             */
-/*   Updated: 2023/12/27 14:54:14 by mpatrao          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:00:13 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 Character::Character(){
     std::cout << "Called Character default constructor\n";
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
 }
 
 Character::Character(const std::string name){
     std::cout << "Called Character constructor with name " << name << std::endl;
     this->Name = name;
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
 }
 
 Character::Character(const Character& copy){
@@ -37,9 +41,9 @@ Character& Character::operator=(const Character& copy){
 }
 
 Character::~Character(){
-    std::cout << "Called Character destructor for " << this->Name << std::endl;
 	for (int i = 0; i < 4 && this->inventory[i]; i++)
 		delete this->inventory[i];
+    std::cout << "Called Character destructor for " << this->Name << std::endl;
 }
 
 std::string const & Character::getName()const{

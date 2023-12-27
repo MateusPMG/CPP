@@ -1,7 +1,7 @@
 NAME = a.out
 SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -g3 -std=c++98 #-fsanitize=address,undefined
+CFLAGS = -Wall -Wextra -Werror -g3 -std=c++98 -fsanitize=address,undefined
 
 all:	$(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:44:10 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/04 14:55:55 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/04 15:15:01 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class AForm{
         bool getSign()const;
         int getSignGrade()const;
         int getExecGrade()const;
-        virtual void beSigned(Bureaucrat& bureau) const = 0;
+        void beSigned(Bureaucrat& bureau);
         class GradeTooLowException : public std::exception
         {
             public:

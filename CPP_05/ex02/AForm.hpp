@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:44:10 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 14:37:13 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:15:28 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class AForm{
         //constructors
         AForm();
         AForm(const AForm& copy);
-        AForm(std::string name, int sign_grade, int current_grade);
+        AForm(std::string name, int sign_grade, int exec_grade);
         
         //overload
         AForm& operator=(const AForm& copy);
@@ -39,10 +39,16 @@ class AForm{
         bool getSign()const;
         int getSignGrade()const;
         int getExecGrade()const;
+
+        //setter
+        void setSign(bool set);
         
         //public methods
         void beSigned(Bureaucrat& bureau);
-        virtual void execute(Bureaucrat const & executor)const = 0;
+        void execute(Bureaucrat const & executor)const;
+
+        //executor
+        virtual void executor()const = 0;
         
         //exceptions
         class GradeTooLowException : public std::exception
@@ -51,6 +57,11 @@ class AForm{
                 const char	*what(void) const throw();
         };
         class GradeTooHighException : public std::exception
+        {
+            public:
+                const char	*what(void) const throw();
+        };
+        class FormNotSignedException : public std::exception
         {
             public:
                 const char	*what(void) const throw();

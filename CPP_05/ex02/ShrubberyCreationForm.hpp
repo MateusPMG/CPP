@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:11:42 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 14:17:27 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:47:37 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include <iostream>
-# include <string>
+# include <fstream>
 # include "AForm.hpp"
+# include "Bureaucrat.hpp"
 
 class ShrubberyCreationForm : public AForm
 {
 	private:
-		
+		std::string _target;
 	public:
 		ShrubberyCreationForm();
-		ShrubberyCreationForm( ShrubberyCreationForm const & src );
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm( ShrubberyCreationForm const & copy );
 		~ShrubberyCreationForm();
-		ShrubberyCreationForm& operator=( ShrubberyCreationForm const & rhs );
+		ShrubberyCreationForm& operator=(ShrubberyCreationForm& const copy );
+		void executor()const;
 };
-
-std::ostream& operator<<( std::ostream & o, ShrubberyCreationForm const & i );
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:08:45 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 14:11:56 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:51:29 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
-# include <string>
+# include "AForm.hpp"
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public AForm
 {
+	private:
+		
 	public:
 
 		RobotomyRequestForm();
-		RobotomyRequestForm( RobotomyRequestForm const & src );
+		RobotomyRequestForm( RobotomyRequestForm& const copy);
 		~RobotomyRequestForm();
-		RobotomyRequestForm &		operator=( RobotomyRequestForm const & rhs );
-	private:
-
+		RobotomyRequestForm& operator=( RobotomyRequestForm& const copy);
+		void executor()const;
 };
-
-std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i );
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:43:57 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 14:17:56 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:16:25 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ int AForm::getSignGrade()const{
 
 int AForm::getExecGrade()const{
     return (this->_gradeE);
+}
+
+void AForm::setSign(bool set){
+    this->_signed = set;
+    return ;
 }
 
 void AForm::beSigned(Bureaucrat& bureau){

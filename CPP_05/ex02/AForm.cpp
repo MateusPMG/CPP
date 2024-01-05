@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:43:57 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 15:16:25 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 16:16:00 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ AForm::~AForm(){
     std::cout << "called AForm destructor\n";
 }
 
-AForm::AForm(std::string name, int sign_grade, int current_grade):_Name(name),_signed(false),_gradeS(sign_grade),_gradeE(current_grade){
+AForm::AForm(std::string name, int sign_grade, int exec_grade):_Name(name),_signed(false),_gradeS(sign_grade),_gradeE(exec_grade){
     std::cout << "called parametric AForm constructor\n";
-    if (sign_grade < 1 || current_grade < 1)
+    if (sign_grade < 1 || exec_grade < 1)
         throw(GradeTooHighException());
-    else if (sign_grade > 150 || current_grade > 150)
+    else if (sign_grade > 150 || exec_grade > 150)
         throw(GradeTooLowException());
 }
 
@@ -76,6 +76,11 @@ const char	*AForm::GradeTooLowException::what(void) const throw()
 const char	*AForm::GradeTooHighException::what(void) const throw()
 {
 	return ("AForm's grade is too high");
+}
+
+const char	*AForm::FormNotSignedException::what(void) const throw()
+{
+	return ("AForm is not signed");
 }
 
 std::ostream	&operator<<(std::ostream &out, AForm const &form)

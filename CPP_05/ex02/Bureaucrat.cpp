@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:57:01 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/02 16:31:12 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 17:20:15 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ const char* Bureaucrat::GradeTooLowException::what(void)const throw(){
     return ("Reached lowest grade already or exceeded");
 }
 
-void Bureaucrat::signForm(Form& frm, bool sign){
+void Bureaucrat::signForm(AForm& frm, bool sign){
     if (!sign && frm.getSignGrade() >= this->_Grade)
 		std::cout << this->_Name << " signed " << frm.getName() << std::endl;
 	else

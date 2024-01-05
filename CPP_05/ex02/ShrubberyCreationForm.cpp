@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:12:34 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 15:47:43 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 18:48:20 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,31 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy)
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm& const copy){
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const & copy){
 	this->_target = copy._target;
 	this->setSign(copy.getSign());
 	return (*this);
 }
 
 void ShrubberyCreationForm::executor()const{
-	std::ofstream Myfile(this->_target + "_shrubbery");
-	Myfile << "      /\\n";     
-	Myfile << "     /\*\\n";     
-	Myfile << "    /\O\*\\n";    
-	Myfile << "   /*/\/\/\\n"; 
-	Myfile << "  /\O\/\*\/\\n"; 
-	Myfile << " /\*\/\*\/\/\\n";
-	Myfile << "/\O\/\/*/\/O/\\n";
-	Myfile << "      ||\n";     
-	Myfile << "      ||\n";     
-	Myfile << "      ||\n";
+	std::ofstream Myfile;
+	Myfile.open((this->_target + "_shrubbery").c_str());
+	Myfile << "    *\\" << std::endl;
+	Myfile << "   /.\\" << std::endl;
+	Myfile << "  /o..\\" << std::endl;
+	Myfile << "  /..o\\" << std::endl;
+	Myfile << " /.o..o\\" << std::endl;
+	Myfile << " /...o.\\" << std::endl;
+	Myfile << "/..o....\\" << std::endl;
+	Myfile << "^^^[_]^^^\n" << std::endl;
 	Myfile << "\n";
-	Myfile << "    *\\n";
-	Myfile << "   /.\\n";
-	Myfile << "  /o..\\n";
-	Myfile << "  /..o\\n";
-	Myfile << " /.o..o\\n";
-	Myfile << " /...o.\\n";
-	Myfile << "/..o....\\n";
-	Myfile << "^^^[_]^^^\n";
+	Myfile << "    *\\" << std::endl;
+	Myfile << "   /.\\" << std::endl;
+	Myfile << "  /o..\\" << std::endl;
+	Myfile << "  /..o\\" << std::endl;
+	Myfile << " /.o..o\\" << std::endl;
+	Myfile << " /...o.\\" << std::endl;
+	Myfile << "/..o....\\" << std::endl;
+	Myfile << "^^^[_]^^^\n" << std::endl;
 	Myfile.close();
 }

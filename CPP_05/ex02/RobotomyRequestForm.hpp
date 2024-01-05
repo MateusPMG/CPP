@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:08:45 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 16:28:21 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 18:17:59 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class RobotomyRequestForm : public AForm
 	public:
 		RobotomyRequestForm();
 		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm( RobotomyRequestForm& const copy);
+		RobotomyRequestForm( RobotomyRequestForm const & copy);
 		~RobotomyRequestForm();
-		RobotomyRequestForm& operator=( RobotomyRequestForm& const copy);
+		RobotomyRequestForm& operator=( RobotomyRequestForm const & copy);
 		void executor()const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:57:01 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 17:20:15 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 18:11:11 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,23 @@ void	Bureaucrat::setGrade(int grade)
 	else if (grade < 1)
 		throw(GradeTooHighException());
 	this->_Grade = grade;
+}
+
+int Bureaucrat::executeForm(AForm const & form)const{
+    if (form.getSign() && form.getExecGrade() >= this->_Grade)
+	{
+		std::cout << this->_Name << " executed " << form.getName() << std::endl;
+		return (0);
+	}
+	else
+	{
+		std::cout << this->_Name << " could not execute " << form.getName()
+			<< ((form.getSign() && form.getExecGrade() < this->_Grade) ?
+			" because his grade was too low" : " because it was not signed")
+			<< std::endl;
+		return (1);
+	}
+	return (0);
 }
 
 const char* Bureaucrat::GradeTooHighException::what(void)const throw(){

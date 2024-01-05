@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:36:27 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 17:11:43 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 18:18:30 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class PresidentialPardonForm : public AForm
 	public:
 		PresidentialPardonForm();
 		PresidentialPardonForm(std::string target);
-		PresidentialPardonForm(PresidentialPardonForm& const copy);
+		PresidentialPardonForm(PresidentialPardonForm const & copy);
 		~PresidentialPardonForm();
-		PresidentialPardonForm& operator=(PresidentialPardonForm& const copy);
+		PresidentialPardonForm& operator=(PresidentialPardonForm const & copy);
 		void executor()const;
 };
 #endif

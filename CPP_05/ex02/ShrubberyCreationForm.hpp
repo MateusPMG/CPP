@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:11:42 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 16:09:17 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 18:17:38 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm( ShrubberyCreationForm const & copy );
 		~ShrubberyCreationForm();
-		ShrubberyCreationForm& operator=(ShrubberyCreationForm& const copy );
+		ShrubberyCreationForm& operator=(ShrubberyCreationForm const & copy );
 		void executor()const;
 };
 #endif 

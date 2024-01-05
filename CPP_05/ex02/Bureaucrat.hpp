@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:56:49 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/04 14:53:01 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 17:47:38 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Bureaucrat{
         void decrement();
         void setGrade(int grade);
         void signForm(AForm& frm, bool sign);
+        int executeForm(AForm const & form)const;
         class GradeTooLowException : public std::exception
         {
             public:

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:44:10 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/05 15:15:28 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 18:12:31 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ class AForm{
                 const char	*what(void) const throw();
         };
         class FormNotSignedException : public std::exception
+        {
+            public:
+                const char	*what(void) const throw();
+        };
+        class FormNotExecutedException : public std::exception
         {
             public:
                 const char	*what(void) const throw();

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:43:57 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/04 14:57:12 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 14:17:56 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ int AForm::getExecGrade()const{
     return (this->_gradeE);
 }
 
-/* void AForm::beSigned(Bureaucrat& bureau){
+void AForm::beSigned(Bureaucrat& bureau){
     bureau.signForm(*this, this->_signed);
 	if (bureau.getGrade() > this->_gradeS)	
 		throw(GradeTooHighException());
 	else
 		this->_signed = true;
 	return ;
-} */
+}
 
 const char	*AForm::GradeTooLowException::what(void) const throw()
 {

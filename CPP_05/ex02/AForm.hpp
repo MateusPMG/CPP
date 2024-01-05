@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:44:10 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/04 15:15:01 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/05 14:37:13 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,28 @@ class AForm{
         const int _gradeS;
         const int _gradeE;
     public:
+        //constructors
         AForm();
         AForm(const AForm& copy);
-        AForm& operator=(const AForm& copy);
-        ~AForm();
         AForm(std::string name, int sign_grade, int current_grade);
+        
+        //overload
+        AForm& operator=(const AForm& copy);
+
+        //destructor
+        virtual ~AForm();
+         
+        //getters
         std::string getName()const;
         bool getSign()const;
         int getSignGrade()const;
         int getExecGrade()const;
+        
+        //public methods
         void beSigned(Bureaucrat& bureau);
+        virtual void execute(Bureaucrat const & executor)const = 0;
+        
+        //exceptions
         class GradeTooLowException : public std::exception
         {
             public:

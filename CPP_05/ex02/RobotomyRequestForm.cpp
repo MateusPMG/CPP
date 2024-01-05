@@ -1,32 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/05 14:07:22 by mpatrao           #+#    #+#             */
+/*   Updated: 2024/01/05 14:08:28 by mpatrao          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RobotomyRequestForm.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
 
 RobotomyRequestForm::RobotomyRequestForm()
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & src)
 {
 }
-
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
-
-RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
+RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs)
 {
 	//if ( this != &rhs )
 	//{
@@ -35,21 +34,8 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
+std::ostream& operator<<(std::ostream& o, RobotomyRequestForm const & i)
 {
 	//o << "Value = " << i.getValue();
 	return o;
 }
-
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-
-/* ************************************************************************** */

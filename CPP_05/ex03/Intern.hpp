@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 13:44:45 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/09 14:47:07 by mpatrao          ###   ########.fr       */
+/*   Created: 2024/01/09 13:41:01 by mpatrao           #+#    #+#             */
+/*   Updated: 2024/01/09 14:27:32 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "Intern.hpp"
 
-int	main(void)
+class Intern
 {
-	{
-		Intern someRandomIntern;
-		AForm* rrf;
-		
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-		delete(rrf);
-		rrf = someRandomIntern.makeForm("idk", "idk either");
-		delete(rrf);
-	}
-}
+    public:
+        Intern();
+        Intern(const Intern& copy);
+        ~Intern();
+        Intern& operator=(const Intern& copy);
+        AForm* makeForm(std::string name, std::string target);
+        AForm* makeShrubberyCreationForm(std::string target);
+        AForm* makeRobotomyRequestForm(std::string target);
+        AForm* makePresidentialPardonForm(std::string target);
+};

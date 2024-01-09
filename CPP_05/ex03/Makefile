@@ -1,5 +1,5 @@
 NAME = a.out
-SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp	
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g3 -std=c++98 -fsanitize=address,undefined
 

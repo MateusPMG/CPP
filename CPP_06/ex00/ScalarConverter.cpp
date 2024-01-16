@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:15:33 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/16 15:14:51 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:35:30 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,8 @@ static void literalChar(const char literal){
 }
 
 static void literalInt(const int literal){
-    if (isprint(literal))
+    
+    if (literal < 256 && literal >= 0 && isprint(literal))
         std::cout << "char: '" << static_cast<char> (literal) << "'" << std::endl;
     else
         std::cout << "char: non displayable\n";
@@ -169,17 +170,17 @@ static void pseudoLiteral(literal_type type, const std::string& literal){
 }
 
 static void literalFloat(const float literal){
-    if (isprint(literal))
+    if (literal < 256 && literal >= 0 && isprint(literal))
         std::cout << "char: '" << static_cast<char> (literal) << "'" << std::endl;
     else
         std::cout << "char: non displayable\n";
     std::cout << "int: " << static_cast<int> (literal) << std::endl;
-    std::cout << "float: " << literal << ".0f" << std::endl;
-    std::cout << "double: " << static_cast<double> (literal) << ".0" << std::endl; 
+    std::cout << "float: " << literal << "f" << std::endl;
+    std::cout << "double: " << static_cast<double> (literal) << std::endl; 
 }
 
 static void literalDouble(const double literal){
-    if (isprint(literal))
+    if (literal < 256 && literal >= 0 && isprint(literal))
         std::cout << "char: '" << static_cast<char> (literal) << "'" << std::endl;
     else
         std::cout << "char: non displayable\n";

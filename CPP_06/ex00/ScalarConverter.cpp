@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:15:33 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/16 15:35:30 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/16 21:27:16 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,20 @@ ScalarConverter::~ScalarConverter(){};
 
 static int ft_stoi(const std::string& literal){
     int num;
-    std::stringstream ss(literal);
-    ss >> num;
+    num = atoi(literal.c_str());
     return num;
 }
 
 static double ft_stod(const std::string& literal){
     double num;
-    std::stringstream ss(literal);
-    ss >> num;
+    num = std::atof(literal.c_str());
     return num;
 }
 
 static float ft_stof(const std::string& literal)
 {
     float num;
-    std::stringstream ss(literal);
-    ss >> num;
+    num = std::atof(literal.c_str());
     return num;
 }
 
@@ -75,6 +72,15 @@ static bool isInt(const std::string& literal)
         if (!isdigit(literal.at(i)))
             return (false);
     }
+    int			len = literal.length();
+	long		check = atol(literal.c_str());
+
+	if (len > 10 || check > std::numeric_limits<int>::max()
+		|| check < std::numeric_limits<int>::min())
+    {
+        std::cout << "overflowed int\n";
+        exit(1);
+    }
     return (true);
 }
 
@@ -87,12 +93,14 @@ static bool isFloat(const std::string& literal)
 	for (size_t i = 0; i < literal.length() - 1; i++)
 	{
 		if (literal.at(i) == '.')
-		{
-			if (i == 0 || i == literal.length() - 1 || literal.find('.') != i)
+        {
+            if (i == 0 || i == literal.length() - 1 || literal.find('.') != i)
 				return false;
-		}
-		else if (!isdigit(literal.at(i)))
+        }
+		else if (literal.at(0) != '-' && !isdigit(literal.at(0)))
 			return false;
+        else if (!isdigit(literal.at(i)) && i != 0)
+            return false;
 	}
     return true;
 }
@@ -112,7 +120,7 @@ static bool isDouble(const std::string& literal)
             found_point = true;
             continue ;
         }
-        if (!isdigit(literal.at(i)))
+        if (!isdigit(literal.at(i)) && i != 0)
             return false;
     }
     return true;
@@ -143,8 +151,7 @@ static void literalChar(const char literal){
     std::cout << "double: " << static_cast<double> (literal) << ".0" << std::endl; 
 }
 
-static void literalInt(const int literal){
-    
+static void literalInt(const int literal){        
     if (literal < 256 && literal >= 0 && isprint(literal))
         std::cout << "char: '" << static_cast<char> (literal) << "'" << std::endl;
     else
@@ -175,7 +182,10 @@ static void literalFloat(const float literal){
     else
         std::cout << "char: non displayable\n";
     std::cout << "int: " << static_cast<int> (literal) << std::endl;
-    std::cout << "float: " << literal << "f" << std::endl;
+    if (literal - floor(literal) != 0.0)
+        std::cout << "float: " << literal << "f" << std::endl;
+    else
+        std::cout << "float: " << std::fixed << std::setprecision(1) << literal << "f" << std::endl;
     std::cout << "double: " << static_cast<double> (literal) << std::endl; 
 }
 
@@ -185,8 +195,11 @@ static void literalDouble(const double literal){
     else
         std::cout << "char: non displayable\n";
     std::cout << "int: " << static_cast<int> (literal) << std::endl;
-    std::cout << "float: " << static_cast<float> (literal) << ".0f" << std::endl;
-    std::cout << "double: " << literal << ".0" << std::endl;
+    if (literal - floor(literal) != 0.0)
+        std::cout << "float: " << literal << "f" << std::endl;
+    else
+        std::cout << "float: " << std::fixed << std::setprecision(1) << literal << "f" << std::endl;
+    std::cout << "double: " << literal << std::endl;
 }
 
 void ScalarConverter::convert(const std::string& literal){
@@ -214,7 +227,7 @@ void ScalarConverter::convert(const std::string& literal){
                 literalDouble(ft_stod(literal));
             break ;
 		default:
-			std::cout << "not a char,int,float or double, try again\n";
+			std::cout << "not a char,int,float or double, or overflow try again\n";
 			break ;
 	}
 }

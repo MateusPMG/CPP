@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:15:33 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/12 17:49:28 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/16 15:14:51 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,28 @@ ScalarConverter::~ScalarConverter(){};
 
 /* actual methods */
 /*  */
+
+static int ft_stoi(const std::string& literal){
+    int num;
+    std::stringstream ss(literal);
+    ss >> num;
+    return num;
+}
+
+static double ft_stod(const std::string& literal){
+    double num;
+    std::stringstream ss(literal);
+    ss >> num;
+    return num;
+}
+
+static float ft_stof(const std::string& literal)
+{
+    float num;
+    std::stringstream ss(literal);
+    ss >> num;
+    return num;
+}
 
 enum literal_type {error,_pseudo_literal,_char,_int,_float,_double};
 
@@ -72,6 +94,7 @@ static bool isFloat(const std::string& literal)
 		else if (!isdigit(literal.at(i)))
 			return false;
 	}
+    return true;
 }
 
 static bool isDouble(const std::string& literal)
@@ -106,6 +129,63 @@ static literal_type getType(const std::string& literal)
 	if (isDouble(literal))
 		return (_double);
 	return (error);
+}
+
+static bool isPseudoLiteral(const std::string& literal){
+    return (literal == "-inff" || literal == "+inff" || literal == "-inf"
+    || literal == "+inf" || literal == "nan" || literal == "nanf");
+}
+
+static void literalChar(const char literal){
+    std::cout << "char: '" << literal << "'" << std::endl;
+    std::cout << "int: " << static_cast<int> (literal) << std::endl;
+    std::cout << "float: " << static_cast<float> (literal) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double> (literal) << ".0" << std::endl; 
+}
+
+static void literalInt(const int literal){
+    if (isprint(literal))
+        std::cout << "char: '" << static_cast<char> (literal) << "'" << std::endl;
+    else
+        std::cout << "char: non displayable\n";
+    std::cout << "int: " << literal << std::endl;
+    std::cout << "float: " << static_cast<float> (literal) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double> (literal) << ".0" << std::endl;
+}
+
+static void pseudoLiteral(literal_type type, const std::string& literal){
+    std::cout << "char: impossible\n";
+    std::cout << "int: impossible\n";
+    if (type == _float)
+    {
+        std::cout << "float: " << literal << std::endl;
+        std::cout << "double: nan" <<  std::endl;
+    }
+    else if (type == _double)
+    {
+        std::cout << "float: nanf" << std::endl;
+        std::cout << "double: " << literal << std::endl;
+    }
+}
+
+static void literalFloat(const float literal){
+    if (isprint(literal))
+        std::cout << "char: '" << static_cast<char> (literal) << "'" << std::endl;
+    else
+        std::cout << "char: non displayable\n";
+    std::cout << "int: " << static_cast<int> (literal) << std::endl;
+    std::cout << "float: " << literal << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double> (literal) << ".0" << std::endl; 
+}
+
+static void literalDouble(const double literal){
+    if (isprint(literal))
+        std::cout << "char: '" << static_cast<char> (literal) << "'" << std::endl;
+    else
+        std::cout << "char: non displayable\n";
+    std::cout << "int: " << static_cast<int> (literal) << std::endl;
+    std::cout << "float: " << static_cast<float> (literal) << ".0f" << std::endl;
+    std::cout << "double: " << literal << ".0" << std::endl;
 }
 
 void ScalarConverter::convert(const std::string& literal){

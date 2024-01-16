@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:13:52 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/12 16:50:48 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/16 13:48:23 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <sstream>
 
 class ScalarConverter{
 	private:

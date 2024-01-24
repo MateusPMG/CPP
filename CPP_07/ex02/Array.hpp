@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 14:21:15 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/24 12:48:44 by mpatrao          ###   ########.fr       */
+/*   Created: 2024/01/24 12:52:40 by mpatrao           #+#    #+#             */
+/*   Updated: 2024/01/24 15:39:24 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#pragma once
 
-
-int main(void){
-    int array[] = {1, 2, 3, 4, 5, 6};
-    
-    ::iter(array, 6, pos<int>);
-    
-    char array2[] = {'a', 'b' , 'c'};
-
-    ::iter(array2, 3, pos<char>);
-
-    std::string array3[] = {"olha", "e assim"};
-
-    ::iter(array3, 2, pos<std::string>);
-
-    float array4[] = {1.0, 2.4, 4.5};
-
-    ::iter(array4, 3, pos<float>);
-    
-    return (0);
-}
+template <class T>
+class Array{
+    private:
+        T *_array;
+        unsigned int _length;
+    public:
+        Array();
+        Array(const Array& copy);
+        Array& operator=(const Array& copy);
+        ~Array();
+        Array(unsigned int n);
+        T& operator[](unsigned int idx);
+        unsigned int size(void)const;
+};
+#include "Array.tpp"

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:38:57 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/24 16:10:15 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/25 14:13:09 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,19 @@ Array<T>& Array<T>::operator=(const Array& copy)
 	return (*this);
 }
 
+template <class T>
+Array<T>& Array<T>::operator=(const Array& copy)const
+{
+	delete[] _array;
+	this->_length = copy._length;
+	this->_array = new T[this->_length];
+	for (unsigned int i = 0; i < this->_length; i++)
+	{
+		this->_array[i] = copy._array[i];
+	}
+	return (*this);
+}
+
 template <typename T>
 Array<T>::~Array(){
 	delete[] this->_array;
@@ -45,6 +58,13 @@ Array<T>::~Array(){
 
 template <typename T>
 T& Array<T>::operator[](unsigned int idx){
+	if(!this->_length || idx > this->_length - 1)
+		throw(std::exception());
+	return(this->_array[idx]);
+}
+
+template <typename T>
+const T& Array<T>::operator[](unsigned int idx)const{
 	if(!this->_length || idx > this->_length - 1)
 		throw(std::exception());
 	return(this->_array[idx]);

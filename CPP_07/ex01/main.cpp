@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 14:21:15 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/24 12:48:44 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/25 13:49:07 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(void){
     int array[] = {1, 2, 3, 4, 5, 6};
     
-    ::iter(array, 6, pos<int>);
+    ::iter(array, 6, pos<const int>);
     
     char array2[] = {'a', 'b' , 'c'};
 

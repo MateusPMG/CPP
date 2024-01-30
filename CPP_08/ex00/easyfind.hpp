@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 14:26:22 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/25 15:54:34 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/01/30 15:02:00 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,23 @@
 #include <iostream>
 #include <algorithm>
 
+
+template <class T>
+int findidx(T haystack, int needle1){
+    int i = 0;
+    typename T::iterator it;
+    for (it = haystack.begin(); it != haystack.end(); it++)
+    {
+        if (*it == needle1)
+            return (i);
+        i++;
+    }
+    return (-1);
+}
+
 template <class T>
 int easyfind(T haystack, int needle1){
-    class NotFound : public std::exception
+     class NotFound : public std::exception
     {
         public:
             const char	*what(void) const throw(){
@@ -24,9 +38,11 @@ int easyfind(T haystack, int needle1){
             };
     };
     typename T::iterator it;
-    it = std::find(haystack.begin(), haystack.end(), needle1);
+    it = find(haystack.begin(), haystack.end(), needle1);
     if (it != haystack.end())
-        return (it);
+        return (findidx(haystack, needle1));
     else
+    {
         throw(NotFound());
+    }
 }

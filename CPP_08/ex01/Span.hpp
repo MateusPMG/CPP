@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:21:33 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/30 16:28:00 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/02/01 16:02:59 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <algorithm>
+#include <numeric>
 class Span {
     private:
         unsigned int _max;
@@ -37,4 +39,5 @@ class Span {
             public:
                 const char	*what(void) const throw();
         };
+        void manyAdd(std::vector<int>::iterator start, std::vector<int>::iterator end);
 };

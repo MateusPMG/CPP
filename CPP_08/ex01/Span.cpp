@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:30:30 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/01/30 16:33:18 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/02/01 16:02:26 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,32 +38,30 @@ void Span::addNumber(unsigned int i){
 int Span::shortestSpan(void)const{
     if (_array.size() <= 1)
         throw(NoSpan());
-    int i = abs(_array[0] - _array[1]);
-    for (unsigned int x = 0; x < _array.size() - 1; x++)
-    {
-        for(unsigned int y = 0; y < _array.size(); y++)
-            if (i > abs(_array[x] - _array[y]) && abs(_array[x] - _array[y]) != 0)
-                i = abs(_array[x] - _array[y]);
-    }
-    
-    return (i);
+    std::vector<long>	tmp;
+	std::vector<long>	diff;
+	std::copy(_array.begin(), _array.end(), std::back_inserter(tmp));
+	std::sort(tmp.begin(), tmp.end());
+	std::adjacent_difference(tmp.begin(), tmp.end(), std::back_inserter(diff));
+	return *std::min_element(++diff.begin(), diff.end());
 }
 
 int Span::longestSpan(void)const{
     if (_array.size() <= 1)
         throw(NoSpan());
-    int i = abs(_array[0] - _array[1]);
-    for (unsigned int x = 0; x < _array.size() - 1; x++)
-    {
-        for(unsigned int y = 0; y < _array.size(); y++)
-            if (i < abs(_array[x] - _array[y]) && abs(_array[x] - _array[y]) != 0)
-                i = abs(_array[x] - _array[y]);
-    }
-    return (i);
+   return (long)*std::max_element(_array.begin(), _array.end())
+		- (long)*std::min_element(_array.begin(), _array.end());
+}
+
+void Span::manyAdd(std::vector<int>::iterator start, std::vector<int>::iterator end){
+    if (_array.size() == _max || std::distance(start, end) > (long)(_max - _array.size()))
+        throw(SpanFull());
+    else
+     this->_array.insert(_array.end(), start, end);
 }
 
 const char* Span::SpanFull::what(void)const throw(){
-    return("storage already full!");
+    return("storage already full or NOT enough space!");
 }
 
 const char* Span::NoSpan::what(void)const throw(){

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:43:24 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/02/07 18:25:23 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/02/07 19:24:41 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,25 @@ int main(int ac, char **av){
         try
         {
             MergeInsertSort< std::vector<int> > sorter1(vec);
-            sorter1.printBefore(vec);
+            sorter1.checkInput();
+            sorter1.printBefore();
             sorter1.parse();
-            sorter1.printAfter(vec);
-            std::cout << "Time to process a range of" << sorter1.getNB() << "elements with std::vector : "
-            << sorter1.getTime();
+            sorter1.printAfter();
+            std::cout << "Time to process a range of " << sorter1.getNB() << " elements with std::vector : "
+            << sorter1.getTime() << " microseconds" << std::endl;
         }
         catch(const std::exception& e)
         {
             std::cerr << e.what() << '\n';
+            exit(1);
         }
         try
         {
-            MergeInsertSort< std::list<int> > sorter2;
+            MergeInsertSort< std::list<int> > sorter2(lst);
+            sorter2.checkInput();
             sorter2.parse();
-            std::cout << "Time to process a range of" << sorter2.getNB() << "elements with std::list : "
-            << sorter2.getTime();
+            std::cout << "Time to process a range of " << sorter2.getNB() << " elements with std::list : "
+            << sorter2.getTime() << " microseconds" << std::endl;
         }
         catch(const std::exception& e)
         {

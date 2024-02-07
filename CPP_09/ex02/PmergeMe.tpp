@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:18:25 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/02/07 18:18:41 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/02/07 19:23:22 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,36 +41,33 @@ MergeInsertSort<T>::MergeInsertSort(const T& data){
 template<typename T>
 void MergeInsertSort<T>::parse(){
     clock_t start = clock();
-    if (!checkInput(_data))
-        throw(std::runtime_error("Duplicates or negative numbers found"));
     sort(_data);
     clock_t end = clock();
-    _time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
+    _time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 }
 
 template<typename T>
-void MergeInsertSort<T>::printBefore(const T& data){
+void MergeInsertSort<T>::printBefore(){
     typename T::const_iterator it;
     std::cout << "Before: ";
-    for (it = data.begin(); it != data.end(); it++){
+    for (it = _data.begin(); it != _data.end(); it++){
         std::cout << *it << " ";
     }
     std::cout << std::endl;
 }
 
 template<typename T>
-bool MergeInsertSort<T>::checkInput(const T& data){
+void MergeInsertSort<T>::checkInput(){
     typename T::const_iterator it1, it2;
-    for (it1 = data.begin(); it1 != data.end(); it1++){
+    for (it1 = _data.begin(); it1 != _data.end(); it1++){
         if (*it1 < 0)
-            return (false);
-        for (it2 = data.begin(); it2 != it1; ++it2){
+            throw(std::runtime_error("Error: wrong format or duplicates or negative numbers found"));;
+        for (it2 = _data.begin(); it2 != it1; ++it2){
             if (*it1 == *it2)
-                return (false);
+                throw(std::runtime_error("Error: wrong format or duplicates or negative numbers found"));
         }
         _nbele++;
     }
-    return (true);
 }
 
 template<typename T>
@@ -114,10 +111,10 @@ void MergeInsertSort<T>::sort(T& data){
 }
 
 template<typename T>
-void MergeInsertSort<T>::printAfter(const T& data){
+void MergeInsertSort<T>::printAfter(){
     typename T::const_iterator it;
     std::cout << "After: ";
-    for (it = data.begin(); it != data.end(); it++){
+    for (it = _data.begin(); it != _data.end(); it++){
         std::cout << *it << " ";
     }
     std::cout << std::endl;

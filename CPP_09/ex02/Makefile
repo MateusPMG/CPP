@@ -1,5 +1,5 @@
 NAME = PmergeMe
-SRC = main.cpp PmergeMe.tpp
+SRC = main.cpp 
 CC = @c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98 #-fsanitize=address,undefined
 

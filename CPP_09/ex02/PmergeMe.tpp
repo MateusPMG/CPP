@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*   PmergeMe.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 12:43:53 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/02/07 18:03:47 by mpatrao          ###   ########.fr       */
+/*   Created: 2024/02/07 18:18:25 by mpatrao           #+#    #+#             */
+/*   Updated: 2024/02/07 18:18:41 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 template<typename T>
-MergeInsertSort<T>::MergeInsertSort():_data(void),_time(0),_nbele(0){}
+MergeInsertSort<T>::MergeInsertSort():_data(0),_time(0),_nbele(0){}
 
 template<typename T>
 MergeInsertSort<T>::MergeInsertSort(const MergeInsertSort& copy){
@@ -32,14 +32,18 @@ template<typename T>
 MergeInsertSort<T>::~MergeInsertSort(){}
 
 template<typename T>
-MergeInsertSort<T>::MergeInsertSort(const T& data):_data(data),_time(0),_nbele(0){}
+MergeInsertSort<T>::MergeInsertSort(const T& data){
+    _data.assign(data.begin(), data.end());
+    _time = 0;
+    _nbele = 0;
+}
 
 template<typename T>
-void MergeInsertSort<T>::parse(T& data){
+void MergeInsertSort<T>::parse(){
     clock_t start = clock();
-    if (!checkInput(data))
+    if (!checkInput(_data))
         throw(std::runtime_error("Duplicates or negative numbers found"));
-    sort(data);
+    sort(_data);
     clock_t end = clock();
     _time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
 }

@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:43:40 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/02/07 18:03:07 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/02/07 18:20:55 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 template<typename T>
 class MergeInsertSort{
     private:
+        T _data;
         double _time;
         int _nbele;
         
@@ -33,12 +34,13 @@ class MergeInsertSort{
         ~MergeInsertSort();
         //mine
         MergeInsertSort(const T& data);
-        void parse(T& data);
+        void parse();
         bool checkInput(const T& data);
-        static void sort(T& data);
+        void sort(T& data);
         void printBefore(const T& data);
         void printAfter(const T& data);
         int getNB();
         double getTime();
 };
 
+#include "PmergeMe.tpp"

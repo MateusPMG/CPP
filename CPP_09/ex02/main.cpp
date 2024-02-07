@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:43:24 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/02/07 17:57:54 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/02/07 18:13:17 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int main(int ac, char **av){
         }
         try
         {
-            MergeInsertSort< std::vector<int> > sorter1;
+            MergeInsertSort< std::vector<int> > sorter1(vec);
             sorter1.printBefore(vec);
-            sorter1.parse(vec);
+            sorter1.parse();
             sorter1.printAfter(vec);
             MergeInsertSort< std::list<int> > sorter2;
-            sorter2.parse(lst);
+            sorter2.parse();
             std::cout << "Time to process a range of" << sorter1.getNB() << "elements with std::vector : "
             << sorter1.getTime();
             std::cout << "Time to process a range of" << sorter2.getNB() << "elements with std::list : "

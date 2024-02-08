@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:18:25 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/02/07 19:23:22 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/02/08 14:16:59 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,13 @@ MergeInsertSort<T>::MergeInsertSort(const T& data){
 
 template<typename T>
 void MergeInsertSort<T>::parse(){
-    clock_t start = clock();
     sort(_data);
-    clock_t end = clock();
-    _time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 }
 
 template<typename T>
-void MergeInsertSort<T>::printBefore(){
+void MergeInsertSort<T>::printBefore(int i){
+    if (!i)
+        return ;
     typename T::const_iterator it;
     std::cout << "Before: ";
     for (it = _data.begin(); it != _data.end(); it++){
@@ -111,7 +110,9 @@ void MergeInsertSort<T>::sort(T& data){
 }
 
 template<typename T>
-void MergeInsertSort<T>::printAfter(){
+void MergeInsertSort<T>::printAfter(int i){
+    if (!i)
+        return ;
     typename T::const_iterator it;
     std::cout << "After: ";
     for (it = _data.begin(); it != _data.end(); it++){

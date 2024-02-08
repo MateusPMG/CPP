@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:43:40 by mpatrao           #+#    #+#             */
-/*   Updated: 2024/02/07 18:41:56 by mpatrao          ###   ########.fr       */
+/*   Updated: 2024/02/08 13:58:16 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ class MergeInsertSort{
         void parse();
         void checkInput();
         void sort(T& data);
-        void printBefore();
-        void printAfter();
+        void printBefore(int i);
+        void printAfter(int i);
         int getNB();
         double getTime();
 };
